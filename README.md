@@ -12,7 +12,7 @@ Un générateur de mot de passe Python avec vérification de complexité et une 
   - Lettres minuscules
   - Chiffres
   - Caractères spéciaux
-- **Option pour exclure les caractères similaires** (0/O, 1/l/I, |)
+- **Option pour exclure les caractères similaires** (i/l/o, I/O, 0/1, |)
 - Génération de plusieurs mots de passe à la fois
 
 ### ✅ Vérification de Complexité
@@ -58,7 +58,7 @@ python3 main.py
 # Générer un mot de passe de 16 caractères
 python3 main.py --length 16
 
-# Exclure les caractères similaires (0/O, 1/l/I, |)
+# Exclure les caractères similaires (i/l/o, I/O, 0/1, |)
 python3 main.py --exclude-similar
 
 # Générer 5 mots de passe
@@ -132,7 +132,7 @@ $ python3 main.py --exclude-similar --length 16
 
 🔐 Génération de mot(s) de passe sécurisé(s)...
 
-⚠️  Caractères similaires exclus (0/O, 1/l/I, |)
+⚠️  Caractères similaires exclus (i/l/o, I/O, 0/1, |)
 
   ?GF-LW]a;5+GP-N8
   Score: 7/7 ✅ Fort

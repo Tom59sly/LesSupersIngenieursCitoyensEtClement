@@ -17,7 +17,7 @@ def main():
 Exemples d'utilisation:
   %(prog)s                              # Génère un mot de passe par défaut
   %(prog)s --length 16                  # Génère un mot de passe de 16 caractères
-  %(prog)s --exclude-similar            # Exclut les caractères similaires (0/O, 1/l/I)
+  %(prog)s --exclude-similar            # Exclut les caractères similaires (i/l/o, I/O, 0/1, |)
   %(prog)s --check "MonMotDePasse123!"  # Vérifie la complexité d'un mot de passe
   %(prog)s --news                       # Affiche les entreprises hackées
   %(prog)s --news --search Yahoo        # Recherche des infos sur Yahoo
@@ -36,7 +36,7 @@ Exemples d'utilisation:
     parser.add_argument('--no-special', action='store_true',
                        help='Ne pas inclure de caractères spéciaux')
     parser.add_argument('--exclude-similar', action='store_true',
-                       help='Exclure les caractères similaires (0/O, 1/l/I, etc.)')
+                       help='Exclure les caractères similaires (i/l/o, I/O, 0/1, |)')
     
     # Options de vérification
     parser.add_argument('-c', '--check', type=str,
@@ -113,7 +113,7 @@ Exemples d'utilisation:
         print("\n🔐 Génération de mot(s) de passe sécurisé(s)...\n")
         
         if args.exclude_similar:
-            print("⚠️  Caractères similaires exclus (0/O, 1/l/I, |)\n")
+            print("⚠️  Caractères similaires exclus (i/l/o, I/O, 0/1, |)\n")
         
         for i in range(args.generate):
             password = generator.generate()

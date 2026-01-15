@@ -27,6 +27,10 @@ class TestPasswordGenerator(unittest.TestCase):
         password = generator.generate()
         
         # Vérifier qu'aucun caractère similaire n'est présent
+        # Lowercase: i, l, o
+        # Uppercase: I, O
+        # Digits: 0, 1
+        # Special: |
         similar_chars = 'iloIO01|'
         for char in similar_chars:
             self.assertNotIn(char, password, 
