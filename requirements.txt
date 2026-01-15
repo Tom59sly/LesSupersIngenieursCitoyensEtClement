@@ -1,0 +1,2 @@
+# Ce projet n'a pas de dépendances externes
+# Python 3.6+ est requis avec seulement la bibliothèque standard
