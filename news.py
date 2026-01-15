@@ -1,7 +1,6 @@
 """
 Module de news sur les entreprises victimes de hacks.
 """
-from datetime import datetime
 
 
 class HackNewsDatabase:
@@ -82,13 +81,16 @@ class HackNewsDatabase:
     
     def get_latest_news(self, count=5):
         """
-        Retourne les dernières news.
+        Retourne les premières news de la liste.
+        
+        Note: Les incidents sont ordonnés manuellement dans la liste,
+        les plus notables en premier.
         
         Args:
             count: Nombre de news à retourner
             
         Returns:
-            list: Liste des derniers incidents
+            list: Liste des premiers incidents
         """
         return self.HACKED_COMPANIES[:count]
     

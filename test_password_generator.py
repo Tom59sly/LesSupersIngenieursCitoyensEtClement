@@ -53,6 +53,14 @@ class TestPasswordGenerator(unittest.TestCase):
         with self.assertRaises(ValueError):
             generator.generate()
     
+    def test_length_too_short_for_all_types(self):
+        """Test qu'une erreur est levée si la longueur est trop courte."""
+        # Avec 4 types de caractères, la longueur minimale est 4
+        generator = PasswordGenerator(length=3)
+        with self.assertRaises(ValueError) as context:
+            generator.generate()
+        self.assertIn("au moins 4", str(context.exception))
+    
     def test_all_character_types_present(self):
         """Test que tous les types de caractères sont présents."""
         generator = PasswordGenerator(length=20)

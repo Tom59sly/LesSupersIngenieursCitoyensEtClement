@@ -79,6 +79,12 @@ class PasswordGenerator:
         if not char_sets:
             raise ValueError("Au moins un type de caractère doit être activé")
         
+        if self.length < len(char_sets):
+            raise ValueError(
+                f"La longueur doit être au moins {len(char_sets)} pour inclure "
+                f"tous les types de caractères actifs"
+            )
+        
         # S'assurer qu'au moins un caractère de chaque ensemble est inclus
         password = []
         for char_set in char_sets:
