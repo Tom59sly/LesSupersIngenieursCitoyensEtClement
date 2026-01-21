@@ -76,6 +76,7 @@
           <q-toggle v-model="useUppercase" :label="t('uppercase')" />
           <q-toggle v-model="useNumbers" :label="t('numbers')" />
           <q-toggle v-model="useSymbols" :label="t('symbols')" />
+          <q-toggle v-model="excludeSimilar" :label="t('excludeSimilar')" />
         </div>
 
         <q-input filled readonly v-model="generatedPassword" :label="t('generatedPassword')" />
@@ -180,13 +181,22 @@ const genLength = ref(16);
 const useUppercase = ref(true);
 const useNumbers = ref(true);
 const useSymbols = ref(true);
+const excludeSimilar = ref(false);
 const generatedPassword = ref('');
 
 const generatePassword = () => {
-  const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-  const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const numbers = '0123456789';
-  const symbols = '!@#$%^&*()-_=+[]{}<>?';
+  let lowercase = 'abcdefghijklmnopqrstuvwxyz';
+  let uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let numbers = '0123456789';
+  let symbols = '!@#$%^&*()-_=+[]{}<>?';
+
+  // Exclure les caractères similaires/ambigus si demandé
+  if (excludeSimilar.value) {
+    lowercase = lowercase.replace(/[ilo]/g, ''); // retire i, l, o
+    uppercase = uppercase.replace(/[IO]/g, ''); // retire I, O
+    numbers = numbers.replace(/[0]/g, ''); // retire 0 uniquement
+    symbols = symbols.replace(/[|]/g, ''); // retire |
+  }
 
   let chars = lowercase;
   if (useUppercase.value) chars += uppercase;
@@ -231,6 +241,7 @@ const translations = {
     uppercase: 'Majuscules',
     numbers: 'Chiffres',
     symbols: 'Symboles',
+    excludeSimilar: 'Exclure caractères similaires (0 O o i I L |.)',
     generatedPassword: 'Mot de passe généré',
     generate: 'Générer',
     copy: 'Copier',
@@ -256,6 +267,7 @@ const translations = {
     uppercase: 'Uppercase',
     numbers: 'Numbers',
     symbols: 'Symbols',
+    excludeSimilar: 'Exclude similar characters (0 O o i I L |)',
     generatedPassword: 'Generated password',
     generate: 'Generate',
     copy: 'Copy',
