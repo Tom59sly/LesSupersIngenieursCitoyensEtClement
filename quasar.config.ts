@@ -46,7 +46,7 @@ export default defineConfig((/* ctx */) => {
         process.env.NODE_ENV === 'production'
           ? '/LesSupersIngenieursCitoyensEtClement/' // GitHub Pages
           : '/', // Dev local
-      vueRouterMode: 'history', // available values: 'hash', 'history'
+      vueRouterMode: 'hash', // available values: 'hash', 'history'
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -122,13 +122,13 @@ export default defineConfig((/* ctx */) => {
     // },
 
     // https://v2.quasar.dev/quasar-cli-vite/developing-ssr/configuring-ssr
-    ssr: {
-      prodPort: 3000, // The default port that the production server should use
+    ssr: false//{
+      //prodPort: 3000, // The default port that the production server should use
       // (gets superseded if process.env.PORT is specified at runtime)
 
-      middlewares: [
-        'render', // keep this as last one
-      ],
+        //middlewares: [
+          //'render', // keep this as last one
+        //],
 
       // extendPackageJson (json) {},
       // extendSSRWebserverConf (esbuildConf) {},
@@ -138,12 +138,13 @@ export default defineConfig((/* ctx */) => {
       // manualStoreHydration: true,
       // manualPostHydrationTrigger: true,
 
-      pwa: false,
+        //pwa: false,
+      
       // pwaOfflineHtmlFilename: 'offline.html', // do NOT use index.html as name!
 
       // pwaExtendGenerateSWOptions (cfg) {},
       // pwaExtendInjectManifestOptions (cfg) {}
-    },
+    //},
 
     // https://v2.quasar.dev/quasar-cli-vite/developing-pwa/configuring-pwa
     pwa: {
