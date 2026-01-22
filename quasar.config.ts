@@ -15,6 +15,12 @@ export default defineConfig((/* ctx */) => {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
     css: ['app.scss'],
+    
+    // Ajouter ces lignes au début de la configuration
+    htmlVariables: {
+      productName: 'Password Checker',
+      productDescription: 'A Quasar Project to check the strength of a password'
+    },
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
