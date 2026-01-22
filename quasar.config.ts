@@ -44,7 +44,7 @@ export default defineConfig((/* ctx */) => {
       },
       publicPath:
         process.env.NODE_ENV === 'production'
-          ? '/password-checker/' // GitHub Pages
+          ? '/LesSupersIngenieursCitoyensEtClement/' // GitHub Pages
           : '/', // Dev local
       vueRouterMode: 'history', // available values: 'hash', 'history'
       // vueRouterBase,
